@@ -28,7 +28,7 @@ public class LightBoard
   public boolean evaluateLight(int row, int col)
   {
  int onCount = 0;
-    int numRows = lights.length;
+
 
     // Count the number of lights in the same column that are on
     for (int i = 0; i < numRows; i++) {
