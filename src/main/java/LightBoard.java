@@ -10,11 +10,11 @@ public class LightBoard
    */
   public LightBoard(int numRows, int numCols)
   {
-            lights = new boolean[numRows][numCols];
+        lights = new boolean[numRows][numCols];
         Random rand = new Random();
-        for (int r = 0; r < numRows; r++) {
-            for (int c = 0; c < numCols; c++) {
-                lights[r][c] = rand.nextDouble() < 0.4;
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numCols; j++) {
+                lights[i][j] = rand.nextDouble() < 0.4;
             }
         }
     
@@ -27,18 +27,22 @@ public class LightBoard
    */
   public boolean evaluateLight(int row, int col)
   {
-    int onCount = 0;
-    for (int r = 0; r < lights.length; r++) {
-        if (lights[r][col]) {
+ int onCount = 0;
+    int numRows = lights.length;
+
+    // Count the number of lights in the same column that are on
+    for (int i = 0; i < numRows; i++) {
+        if (lights[i][col]) {
             onCount++;
         }
     }
+
+    // Determine the status based on the rules
     if (lights[row][col]) {
         return onCount % 2 == 0;
     } else {
         return onCount % 3 == 0;
     }
-   
  
   }
   public boolean[][] getLights()
