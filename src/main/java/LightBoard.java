@@ -17,7 +17,7 @@ public class LightBoard
                 lights[r][c] = rand.nextDouble() < 0.4;
             }
         }
-    }
+    
 
   }
 
